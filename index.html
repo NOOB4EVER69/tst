@@ -173,57 +173,73 @@
     </main>
 
     <!-- Product Modal -->
-    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-75 z-30 flex items-center justify-center hidden">
-        <div class="bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-start mb-6">
-                    <h2 id="modalProductName" class="text-2xl font-bold"></h2>
-                    <button id="closeModal" class="text-gray-400 hover:text-white">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Product Images -->
-                    <div>
-                        <div class="mb-4">
-                            <img id="mainProductImage" src="" alt="" class="w-full h-80 object-contain rounded-lg">
-                        </div>
-                        <div class="grid grid-cols-4 gap-2" id="thumbnailsContainer">
-                            <!-- Thumbnails will be added dynamically -->
-                        </div>
+    <!-- Modal Background -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-75 z-30 overflow-y-auto p-4 hidden">
+        <!-- Centering Wrapper -->
+        <div class="min-h-full flex items-start justify-center">
+            <!-- Modal Box -->
+            <div class="bg-gray-800 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="flex justify-between items-start mb-6">
+                        <h2 id="modalProductName" class="text-2xl font-bold text-white">Product Name</h2>
+                        <button id="closeModal" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
                     </div>
 
-                    <!-- Product Details -->
-                    <div>
-                        <div class="mb-4">
-                            <span id="modalProductCategory" class="text-sm text-gray-400"></span>
-                            <p id="modalProductDescription" class="mt-2 text-gray-300"></p>
-                        </div>
-
-                        <div class="mb-6">
-                            <div class="flex items-center space-x-2">
-                                <span id="modalProductPrice" class="text-2xl font-bold"></span>
-                                <span id="modalProductOriginalPrice"
-                                    class="text-gray-400 line-through text-lg hidden"></span>
+                    <!-- Grid Content -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Product Images -->
+                        <div>
+                            <div class="mb-4">
+                                <img id="mainProductImage" src="https://via.placeholder.com/300" alt="Main"
+                                    class="w-full h-80 object-contain rounded-lg bg-black" />
+                            </div>
+                            <div class="grid grid-cols-4 gap-2" id="thumbnailsContainer">
+                                <!-- Example thumbnails -->
+                                <img src="https://via.placeholder.com/60" class="w-full h-16 object-contain rounded" />
+                                <img src="https://via.placeholder.com/60" class="w-full h-16 object-contain rounded" />
+                                <img src="https://via.placeholder.com/60" class="w-full h-16 object-contain rounded" />
+                                <img src="https://via.placeholder.com/60" class="w-full h-16 object-contain rounded" />
                             </div>
                         </div>
 
-                        <div class="flex space-x-4">
-                            <button id="modalAddToCart"
-                                class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition">
-                                <i class="fas fa-cart-plus mr-2"></i> Add to Cart
-                            </button>
-                            <button id="modalBuyNow"
-                                class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg font-medium transition">
-                                <i class="fas fa-bolt mr-2"></i> Buy Now
-                            </button>
+                        <!-- Product Details -->
+                        <div class="text-white">
+                            <div class="mb-4">
+                                <span id="modalProductCategory" class="text-sm text-gray-400">Category</span>
+                                <p id="modalProductDescription" class="mt-2 text-gray-300">
+                                    This is a sample description of the product. Add enough text here to test scroll
+                                    behavior on mobile and desktop.
+                                </p>
+                            </div>
+
+                            <div class="mb-6">
+                                <div class="flex items-center space-x-2">
+                                    <span id="modalProductPrice" class="text-2xl font-bold text-green-400">$99.99</span>
+                                    <span id="modalProductOriginalPrice"
+                                        class="text-gray-500 line-through text-lg">$149.99</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+                                <button id="modalAddToCart"
+                                    class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition">
+                                    <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                                </button>
+                                <button id="modalBuyNow"
+                                    class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg font-medium transition">
+                                    <i class="fas fa-bolt mr-2"></i> Buy Now
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Shopping Cart Sidebar -->
     <div id="cartSidebar"
