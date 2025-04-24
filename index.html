@@ -322,10 +322,10 @@
             const database = firebase.database();
             const storage = firebase.storage();
 
-            // Cart state
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let activeCoupon = localStorage.getItem('activeCoupon') || null;
-            let couponDiscount = localStorage.getItem('couponDiscount') ? parseInt(localStorage.getItem('couponDiscount')) : 0;
+            // Cart state - modified to not use localStorage
+            let cart = [];
+            let activeCoupon = null;
+            let couponDiscount = 0;
             let currentProduct = null;
 
             // DOM elements
@@ -604,8 +604,6 @@
                     if (discount) {
                         activeCoupon = couponCode;
                         couponDiscount = discount;
-                        localStorage.setItem('activeCoupon', activeCoupon);
-                        localStorage.setItem('couponDiscount', couponDiscount);
 
                         showSidebarMessage(`Coupon applied: ${couponCode} (${discount}% off)`, 'green');
                         sidebarRemoveCoupon.classList.remove('hidden');
@@ -623,8 +621,6 @@
             function removeCoupon() {
                 activeCoupon = null;
                 couponDiscount = 0;
-                localStorage.removeItem('activeCoupon');
-                localStorage.removeItem('couponDiscount');
 
                 showSidebarMessage('Coupon removed', 'green');
                 sidebarRemoveCoupon.classList.add('hidden');
@@ -691,7 +687,6 @@
             }
 
             function saveCart() {
-                localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartBadge();
             }
 
